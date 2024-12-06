@@ -1,0 +1,46 @@
+{
+    "Name": "Paper",
+    "Author": "admin@gloffi.host",
+    "Description": "Высокопроизводительное ядро сервера Minecraft основаное на технологиях Spigot.",
+    "DockerImages": {
+        "Java 8": "ghcr.io/koronisk/gribocherv:java_8",
+        "Java 11": "ghcr.io/koronisk/gribocherv:java_11",
+        "Java 16": "ghcr.io/koronisk/gribocherv:java_16",
+        "Java 17": "ghcr.io/koronisk/gribocherv:java_17",
+        "Java 18": "ghcr.io/koronisk/gribocherv:java_18",
+        "Java 21": "ghcr.io/koronisk/gribocherv:java_21"
+    },
+    "Startup": "java -Xms128M -Xmx{{SERVER_MEMORY}}M -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}",
+    "Config": {
+        "Restart": "restart",
+        "Stop": "stop"
+    },
+    "Files": {
+        "server.properties": "server-ip=0.0.0.0\nserver-port={{SERVER_PORT}}\nquery-port={{SERVER_PORT}}\nonline-mode=false;",
+        "eula.txt": "eula=true"
+    },
+    "Scripts": {
+        "Installation": {
+            "Script": "curl $(curl https://raw.githubusercontent.com/koronisk/minecraft-versions/refs/heads/main/paper/{{MINECRAFT_VERSION}} -s) --output server.jar",
+            "Entrypoint": "sh"
+        }
+    },
+    "Variables": [
+        {
+            "Name": "Майнкрафт Версия",
+            "Description": "Игровая версия сервера. По умолчанию устанавливается новейшая версия игры.",
+            "Variable": "MINECRAFT_VERSION",
+            "DefaultValue": "latest",
+            "Viewable": true,
+            "Editable": true
+        },
+        {
+            "Name": "Jar Файл Сервера",
+            "Description": "Имя Jar файла ядра сервера для запуска.",
+            "Variable": "SERVER_JARFILE",
+            "DefaultValue": "server.jar",
+            "Viewable": true,
+            "Editable": false
+        }
+    ]
+}
