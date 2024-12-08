@@ -21,26 +21,8 @@
     },
     "Scripts": {
         "Installation": {
-            "Script": "curl $(curl https://raw.githubusercontent.com/koronisk/minecraft-versions/refs/heads/main/paper/{{MINECRAFT_VERSION}} -s) --output server.jar",
+            "Script": "curl $(curl https://raw.githubusercontent.com/koronisk/minecraft-versions/refs/heads/main/paper/latest -s) --output server.jar",
             "Entrypoint": "sh"
         }
-    },
-    "Variables": [
-        {
-            "Name": "Майнкрафт Версия",
-            "Description": "Игровая версия сервера. По умолчанию устанавливается новейшая версия игры.",
-            "Variable": "MINECRAFT_VERSION",
-            "DefaultValue": "latest",
-            "Viewable": true,
-            "Editable": true
-        },
-        {
-            "Name": "Jar Файл Сервера",
-            "Description": "Имя Jar файла ядра сервера для запуска.",
-            "Variable": "SERVER_JARFILE",
-            "DefaultValue": "server.jar",
-            "Viewable": true,
-            "Editable": false
-        }
-    ]
+    }
 }
