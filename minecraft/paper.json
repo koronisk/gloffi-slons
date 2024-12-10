@@ -11,7 +11,7 @@
         "Java 18": "ghcr.io/koronisk/gribocherv:java_18",
         "Java 21": "ghcr.io/koronisk/gribocherv:java_21"
     },
-    "Startup": "java -Xms128M -XX:MaxRAMPercentage=95.0 -Dterminal.jline=false -Dterminal.ansi=true -jar server.jar",
+    "Startup": "java -Xms128M -XX:MaxRAMPercentage=95.0 -Dterminal.jline=false -Dterminal.ansi=false -jar server.jar",
     "Config": {
         "Stop": "stop"
     },
