@@ -11,18 +11,17 @@
         "Java 18": "ghcr.io/koronisk/gribocherv:java_18",
         "Java 21": "ghcr.io/koronisk/gribocherv:java_21"
     },
-    "Startup": "java -Xms128M -Xmx{{SERVER_MEMORY}}M -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}",
+    "Startup": "java -Xms128M -XX:MaxRAMPercentage=95.0 -Dterminal.jline=false -Dterminal.ansi=true -jar server.jar",
     "Config": {
-        "Restart": "restart",
         "Stop": "stop"
     },
     "Files": {
-        "server.properties": "server-ip=0.0.0.0\nserver-port={{SERVER_PORT}}\nquery-port={{SERVER_PORT}}\nonline-mode=false;",
+        "server.properties": "server-ip=0.0.0.0\nserver-port=44444\nquery-port=44444\nonline-mode=false",
         "eula.txt": "eula=true"
     },
     "Scripts": {
         "Installation": {
-            "Script": "curl $(curl https://raw.githubusercontent.com/koronisk/minecraft-versions/refs/heads/main/paper/latest -s) --output server.jar",
+            "Script": "curl $(curl https://raw.githubusercontent.com/koronisk/minecraft-versions/refs/heads/main/paper/latest -s) --output {{SERVER_DIRECTORY}}/server.jar",
             "Entrypoint": "sh"
         }
     }
