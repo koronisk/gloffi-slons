@@ -1,4 +1,5 @@
 {
+    "Id": "paper",
     "Name": "Paper",
     "Author": "admin@gloffi.host",
     "Description": "Высокопроизводительное ядро сервера Minecraft основаное на технологиях Spigot.",
