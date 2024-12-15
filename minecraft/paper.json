@@ -9,6 +9,7 @@
         "Java 16": "ghcr.io/koronisk/gribocherv:java_16",
         "Java 17": "ghcr.io/koronisk/gribocherv:java_17",
         "Java 18": "ghcr.io/koronisk/gribocherv:java_18",
+        "Java 19": "ghcr.io/koronisk/gribocherv:java_19",
         "Java 21": "ghcr.io/koronisk/gribocherv:java_21"
     },
     "Startup": "java -Xms128M -XX:MaxRAMPercentage=95.0 -Dterminal.jline=false -Dterminal.ansi=false -jar server.jar",
@@ -16,7 +17,7 @@
         "Stop": "stop"
     },
     "Files": {
-        "server.properties": "server-ip=0.0.0.0\nserver-port=44444\nquery-port=44444\nonline-mode=false",
+        "server.properties": "server-ip=0.0.0.0\nserver-port=$PORT$\nquery-port=$PORT$\nonline-mode=false",
         "eula.txt": "eula=true"
     },
     "Scripts": {
